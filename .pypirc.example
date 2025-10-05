@@ -1,0 +1,16 @@
+# Copy this to ~/.pypirc and fill in your tokens
+# chmod 600 ~/.pypirc
+
+[distutils]
+index-servers =
+    pypi
+    testpypi
+
+[pypi]
+username = __token__
+password = pypi-YOUR-PYPI-TOKEN-HERE
+
+[testpypi]
+repository = https://test.pypi.org/legacy/
+username = __token__
+password = pypi-YOUR-TESTPYPI-TOKEN-HERE
