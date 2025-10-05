@@ -1,5 +1,5 @@
 // GitHub API Configuration
-const GITHUB_USER = 'yourusername'; // Update with actual username
+const GITHUB_USER = 'james-see'; // Update with actual username
 const GITHUB_REPO = 'pngmeta';
 const GITHUB_API = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}`;
 

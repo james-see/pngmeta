@@ -3,11 +3,11 @@
 A Python library for reading and writing PNG metadata, similar to [iptcinfo3](https://github.com/james-see/iptcinfo3) for JPEG files.
 
 [![PyPI version](https://img.shields.io/pypi/v/pngmeta?style=for-the-badge)](https://pypi.org/project/pngmeta/)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/pngmeta?style=for-the-badge)](https://github.com/yourusername/pngmeta)
+[![GitHub stars](https://img.shields.io/github/stars/james-see/pngmeta?style=for-the-badge)](https://github.com/james-see/pngmeta)
 [![Downloads](https://img.shields.io/pypi/dm/pngmeta?style=for-the-badge)](https://pypi.org/project/pngmeta/)
 [![License](https://img.shields.io/badge/license-Unlicense-blue?style=for-the-badge)](LICENSE)
 
-📖 **[View Full Documentation Site](https://yourusername.github.io/pngmeta/)** - Complete guide with live examples and API reference
+📖 **[View Full Documentation Site](https://james-see.github.io/pngmeta/)** - Complete guide with live examples and API reference
 
 ---
 
@@ -183,7 +183,7 @@ See `examples/basic_usage.py` for additional examples including:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/pngmeta.git
+git clone https://github.com/james-see/pngmeta.git
 cd pngmeta
 
 # Install with uv
