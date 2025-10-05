@@ -50,3 +50,7 @@ dmypy.json
 
 # Ruff
 .ruff_cache/
+
+# Documentation build
+docs/_build/
+docs/.DS_Store

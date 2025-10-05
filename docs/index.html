@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pngmeta - PNG Metadata Library for Python</title>
+    <meta name="description" content="A Python library for reading and writing PNG metadata. Similar to iptcinfo3 but for PNG files.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="60" height="60" rx="12" fill="url(#gradient)"/>
+                        <path d="M15 20h30v25H15z" fill="white" opacity="0.9"/>
+                        <path d="M20 25h20M20 30h15M20 35h18" stroke="#667eea" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0" y1="0" x2="60" y2="60">
+                                <stop offset="0%" stop-color="#667eea"/>
+                                <stop offset="100%" stop-color="#764ba2"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h1>pngmeta</h1>
+                <p class="tagline">Python library for PNG metadata</p>
+                <p class="subtitle">Read and write PNG text chunks, XMP, and metadata with ease</p>
+                
+                <div class="badges">
+                    <a href="https://pypi.org/project/pngmeta/" target="_blank" rel="noopener">
+                        <img src="https://img.shields.io/pypi/v/pngmeta?style=for-the-badge&logo=pypi&logoColor=white" alt="PyPI version">
+                    </a>
+                    <a href="https://github.com/yourusername/pngmeta" target="_blank" rel="noopener">
+                        <img src="https://img.shields.io/github/stars/yourusername/pngmeta?style=for-the-badge&logo=github" alt="GitHub stars" id="stars-badge">
+                    </a>
+                    <a href="https://pypi.org/project/pngmeta/" target="_blank" rel="noopener">
+                        <img src="https://img.shields.io/pypi/dm/pngmeta?style=for-the-badge&logo=python&logoColor=white" alt="Downloads">
+                    </a>
+                    <a href="https://github.com/yourusername/pngmeta/blob/main/LICENSE" target="_blank" rel="noopener">
+                        <img src="https://img.shields.io/badge/license-Unlicense-blue?style=for-the-badge" alt="License">
+                    </a>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="#installation" class="btn btn-primary">Get Started</a>
+                    <a href="https://github.com/yourusername/pngmeta" class="btn btn-secondary" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </div>
+
+                <div class="stats" id="github-stats">
+                    <div class="stat">
+                        <div class="stat-value" id="stars-count">--</div>
+                        <div class="stat-label">GitHub Stars</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="downloads-count">--</div>
+                        <div class="stat-label">PyPI Downloads</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Dependencies</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Why pngmeta?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Simple API</h3>
+                    <p>Dictionary-style access makes it easy to read and write metadata. Similar to iptcinfo3 for a familiar experience.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Zero Dependencies</h3>
+                    <p>Pure Python implementation with no external dependencies. Just install and use.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Full PNG Support</h3>
+                    <p>Handles tEXt, iTXt, and zTXt chunks. Complete support for UTF-8 and compressed text.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>XMP Compatible</h3>
+                    <p>Read and write XMP metadata in PNG files for cross-format compatibility.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast & Efficient</h3>
+                    <p>Minimal overhead. Metadata typically adds only 100-2000 bytes to file size.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔓</div>
+                    <h3>Public Domain</h3>
+                    <p>Released under Unlicense. Use it however you want, commercially or personally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section class="installation" id="installation">
+        <div class="container">
+            <h2>Installation</h2>
+            <div class="code-block">
+                <pre><code>pip install pngmeta</code></pre>
+                <button class="copy-btn" data-clipboard="pip install pngmeta">Copy</button>
+            </div>
+            <p class="install-note">Or with <strong>uv</strong>:</p>
+            <div class="code-block">
+                <pre><code>uv pip install pngmeta</code></pre>
+                <button class="copy-btn" data-clipboard="uv pip install pngmeta">Copy</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Example Section -->
+    <section class="example">
+        <div class="container">
+            <h2>Quick Example</h2>
+            <div class="example-grid">
+                <div class="code-block">
+                    <pre><code><span class="keyword">from</span> pngmeta <span class="keyword">import</span> PngMeta
+
+<span class="comment"># Open an image</span>
+meta = PngMeta(<span class="string">'photo.png'</span>)
+
+<span class="comment"># Read metadata</span>
+<span class="keyword">print</span>(meta[<span class="string">'Title'</span>])
+<span class="keyword">print</span>(meta[<span class="string">'Author'</span>])
+
+<span class="comment"># Add metadata</span>
+meta[<span class="string">'Title'</span>] = <span class="string">'Sunset Over Mountains'</span>
+meta[<span class="string">'Author'</span>] = <span class="string">'Jane Photographer'</span>
+meta[<span class="string">'Copyright'</span>] = <span class="string">'© 2025 Jane'</span>
+
+<span class="comment"># Save changes</span>
+meta.save()
+
+<span class="comment"># Or save to new file</span>
+meta.save(<span class="string">'photo_with_metadata.png'</span>)</code></pre>
+                    <button class="copy-btn" data-clipboard="from pngmeta import PngMeta
+
+meta = PngMeta('photo.png')
+print(meta['Title'])
+meta['Title'] = 'Sunset Over Mountains'
+meta.save()">Copy</button>
+                </div>
+                <div class="example-description">
+                    <h3>It's that simple!</h3>
+                    <ul>
+                        <li>✓ Dictionary-style access</li>
+                        <li>✓ Read existing metadata</li>
+                        <li>✓ Add or modify fields</li>
+                        <li>✓ Save in-place or to new file</li>
+                        <li>✓ Works with any PNG image</li>
+                    </ul>
+                    <a href="https://github.com/yourusername/pngmeta/tree/main/examples" class="btn btn-link">View More Examples →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Detail Section -->
+    <section class="features-detail">
+        <div class="container">
+            <h2>Comprehensive Metadata Support</h2>
+            <div class="detail-grid">
+                <div class="detail-card">
+                    <h3>Standard Fields</h3>
+                    <ul>
+                        <li>Title</li>
+                        <li>Author</li>
+                        <li>Description</li>
+                        <li>Copyright</li>
+                        <li>Creation Time</li>
+                        <li>Software</li>
+                        <li>Comment</li>
+                        <li>+ Any custom field</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3>PNG Chunks</h3>
+                    <ul>
+                        <li><code>tEXt</code> - Latin-1 text</li>
+                        <li><code>iTXt</code> - UTF-8 text</li>
+                        <li><code>zTXt</code> - Compressed text</li>
+                        <li>Automatic chunk selection</li>
+                        <li>Proper CRC calculation</li>
+                        <li>Standards compliant</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3>XMP Support</h3>
+                    <ul>
+                        <li>Read XMP metadata</li>
+                        <li>Write XMP data</li>
+                        <li>Adobe XMP format</li>
+                        <li>Cross-format compatible</li>
+                        <li>Structured metadata</li>
+                        <li>Industry standard</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Release Section -->
+    <section class="release" id="release">
+        <div class="container">
+            <h2>Latest Release</h2>
+            <div class="release-card" id="release-info">
+                <div class="release-header">
+                    <h3 id="release-name">Loading...</h3>
+                    <span class="release-tag" id="release-tag">v0.1.0</span>
+                </div>
+                <p id="release-notes">Fetching release information...</p>
+                <div class="release-actions">
+                    <a href="https://github.com/yourusername/pngmeta/releases/latest" class="btn btn-primary" target="_blank" rel="noopener" id="download-link">
+                        Download Latest Release
+                    </a>
+                    <a href="https://github.com/yourusername/pngmeta/releases" class="btn btn-secondary" target="_blank" rel="noopener">
+                        View All Releases
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section class="documentation">
+        <div class="container">
+            <h2>Documentation</h2>
+            <div class="doc-grid">
+                <a href="https://github.com/yourusername/pngmeta#readme" class="doc-card" target="_blank" rel="noopener">
+                    <h3>📘 Quick Start</h3>
+                    <p>Get up and running in minutes with our comprehensive README</p>
+                </a>
+                <a href="https://github.com/yourusername/pngmeta/tree/main/examples" class="doc-card" target="_blank" rel="noopener">
+                    <h3>💡 Examples</h3>
+                    <p>Real-world examples including interactive demo with colored output</p>
+                </a>
+                <a href="https://github.com/yourusername/pngmeta/blob/main/CONTRIBUTING.md" class="doc-card" target="_blank" rel="noopener">
+                    <h3>🛠️ Contributing</h3>
+                    <p>Learn how to contribute and set up your development environment</p>
+                </a>
+                <a href="https://pypi.org/project/pngmeta/" class="doc-card" target="_blank" rel="noopener">
+                    <h3>📦 PyPI</h3>
+                    <p>View package details, version history, and download statistics</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container">
+            <h2>Similar to iptcinfo3</h2>
+            <p class="comparison-intro">If you're familiar with <a href="https://github.com/james-see/iptcinfo3" target="_blank" rel="noopener">iptcinfo3</a>, you'll feel right at home with pngmeta.</p>
+            <div class="comparison-grid">
+                <div class="comparison-col">
+                    <h3>iptcinfo3 (JPEG)</h3>
+                    <div class="code-block small">
+                        <pre><code><span class="keyword">from</span> iptcinfo3 <span class="keyword">import</span> IPTCInfo
+
+info = IPTCInfo(<span class="string">'photo.jpg'</span>)
+info[<span class="string">'caption/abstract'</span>] = <span class="string">'Caption'</span>
+info.save()</code></pre>
+                    </div>
+                </div>
+                <div class="comparison-col">
+                    <h3>pngmeta (PNG)</h3>
+                    <div class="code-block small">
+                        <pre><code><span class="keyword">from</span> pngmeta <span class="keyword">import</span> PngMeta
+
+meta = PngMeta(<span class="string">'photo.png'</span>)
+meta[<span class="string">'Description'</span>] = <span class="string">'Caption'</span>
+meta.save()</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>pngmeta</h4>
+                    <p>Python library for PNG metadata</p>
+                    <p class="footer-license">Released to the public domain under Unlicense</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/yourusername/pngmeta" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://pypi.org/project/pngmeta/" target="_blank" rel="noopener">PyPI</a></li>
+                        <li><a href="https://github.com/yourusername/pngmeta/issues" target="_blank" rel="noopener">Issues</a></li>
+                        <li><a href="https://github.com/yourusername/pngmeta/discussions" target="_blank" rel="noopener">Discussions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <ul>
+                        <li><a href="https://github.com/yourusername/pngmeta#readme">Getting Started</a></li>
+                        <li><a href="https://github.com/yourusername/pngmeta/tree/main/examples">Examples</a></li>
+                        <li><a href="https://github.com/yourusername/pngmeta/blob/main/CONTRIBUTING.md">Contributing</a></li>
+                        <li><a href="https://github.com/yourusername/pngmeta/releases">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Related</h4>
+                    <ul>
+                        <li><a href="https://github.com/james-see/iptcinfo3" target="_blank" rel="noopener">iptcinfo3</a></li>
+                        <li><a href="http://www.libpng.org/pub/png/spec/" target="_blank" rel="noopener">PNG Spec</a></li>
+                        <li><a href="https://exiv2.org/" target="_blank" rel="noopener">Exiv2</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Made with ❤️ for the Python community</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

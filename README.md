@@ -2,6 +2,15 @@
 
 A Python library for reading and writing PNG metadata, similar to [iptcinfo3](https://github.com/james-see/iptcinfo3) for JPEG files.
 
+[![PyPI version](https://img.shields.io/pypi/v/pngmeta?style=for-the-badge)](https://pypi.org/project/pngmeta/)
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/pngmeta?style=for-the-badge)](https://github.com/yourusername/pngmeta)
+[![Downloads](https://img.shields.io/pypi/dm/pngmeta?style=for-the-badge)](https://pypi.org/project/pngmeta/)
+[![License](https://img.shields.io/badge/license-Unlicense-blue?style=for-the-badge)](LICENSE)
+
+📖 **[View Full Documentation Site](https://yourusername.github.io/pngmeta/)** - Complete guide with live examples and API reference
+
+---
+
 Ever wish you could add information to your PNG images like a caption, author, copyright, and keywords? You already can! PNG files support metadata through text chunks (tEXt, iTXt, zTXt) and XMP. This module makes it easy to read and write that metadata in your Python programs.
 
 ## Installation
