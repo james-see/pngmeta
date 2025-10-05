@@ -83,28 +83,34 @@ async function fetchLatestRelease() {
 // Fetch PyPI download stats
 async function fetchPyPIStats() {
     try {
-        const response = await fetch('https://api.pepy.tech/api/v2/projects/pngmeta');
-        if (!response.ok) throw new Error('Failed to fetch PyPI data');
+        // Try pypistats.org API first (public, no auth required)
+        const response = await fetch('https://pypistats.org/api/packages/pngmeta/recent?period=month');
         
-        const data = await response.json();
-        const downloads = data.total_downloads || 0;
-        
-        // Format large numbers (e.g., 1.5K, 2.3M)
-        let formatted;
-        if (downloads >= 1000000) {
-            formatted = (downloads / 1000000).toFixed(1) + 'M';
-        } else if (downloads >= 1000) {
-            formatted = (downloads / 1000).toFixed(1) + 'K';
+        if (response.ok) {
+            const data = await response.json();
+            const downloads = data.data?.last_month || 0;
+            
+            // Format large numbers (e.g., 1.5K, 2.3M)
+            let formatted;
+            if (downloads >= 1000000) {
+                formatted = (downloads / 1000000).toFixed(1) + 'M';
+            } else if (downloads >= 1000) {
+                formatted = (downloads / 1000).toFixed(1) + 'K';
+            } else if (downloads > 0) {
+                formatted = downloads.toString();
+            } else {
+                formatted = 'New!';
+            }
+            
+            document.getElementById('downloads-count').textContent = formatted;
+            console.log(`PyPI downloads (last month): ${downloads}`);
         } else {
-            formatted = downloads.toString();
+            throw new Error('API response not ok');
         }
-        
-        document.getElementById('downloads-count').textContent = formatted;
-        console.log(`PyPI downloads: ${downloads}`);
     } catch (error) {
-        console.error('Error fetching PyPI stats:', error);
-        // Fallback to showing package emoji
-        document.getElementById('downloads-count').textContent = '📦';
+        console.log('PyPI stats not yet available (package is new)');
+        // Show "New!" for newly published packages
+        document.getElementById('downloads-count').textContent = 'New!';
     }
 }
 

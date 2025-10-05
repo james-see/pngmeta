@@ -127,15 +127,24 @@ php -S localhost:8000 -t docs
 
 ## Troubleshooting
 
-### Stats showing "--" or emojis?
+### Badges showing "PACKAGE NOT FOUND"?
 
-**Cause**: API not loading or repository not found
+**Cause**: Shields.io cache hasn't updated yet (normal for new packages)
 
 **Fix**:
-1. Check browser console (F12)
-2. Verify `GITHUB_USER` in `script.js`
-3. Make sure repository is public
-4. Wait a few seconds for APIs to respond
+1. ✅ Your package IS live: https://pypi.org/project/pngmeta/
+2. ⏳ Badges auto-update in 2-6 hours
+3. ✅ `pip install pngmeta` works now!
+4. See `docs/BADGE_REFRESH.md` for details
+
+### Stats showing "--" or "New!"?
+
+**Cause**: Package just published, stats not yet available
+
+**Fix**:
+1. Download stats update daily
+2. Will show real numbers after 24 hours
+3. "New!" badge is intentional for fresh packages
 
 ### Page not updating?
 
