@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pngmeta"
-version = "0.1.0"
+dynamic = ["version"]
 description = "A Python library for reading and writing PNG metadata (tEXt, iTXt, zTXt chunks and XMP)"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -43,6 +43,9 @@ publish = [
     "hatch>=1.7.0",
     "twine>=4.0.0",
 ]
+
+[tool.hatch.version]
+path = "pngmeta/__init__.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["pngmeta"]
