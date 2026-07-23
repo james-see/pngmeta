@@ -230,3 +230,51 @@ Both use dictionary-style access and similar save patterns for a consistent expe
 - [iptcinfo3](https://github.com/james-see/iptcinfo3) - IPTC metadata for JPEG files (inspiration for this library)
 - [PNG Specification](http://www.libpng.org/pub/png/spec/1.2/PNG-Contents.html) - Technical details on PNG format
 - [Exiv2 PNG Metadata](https://exiv2.org/metadata.html) - How other tools handle PNG metadata
+
+## Goose / MCP Extension
+
+pngmeta ships as an [MCP](https://modelcontextprotocol.io/) server, so AI agents like [goose](https://goose-docs.ai/) can read and write PNG metadata as tools.
+
+### Install the MCP extra
+
+```bash
+pip install "pngmeta[mcp]"
+```
+
+Or use `uvx` (no install needed):
+
+```bash
+uvx --from "pngmeta[mcp]" pngmeta-mcp
+```
+
+### Add to goose
+
+Add this to `~/.config/goose/config.yaml`:
+
+```yaml
+extensions:
+  pngmeta:
+    name: PNG Metadata
+    cmd: uvx
+    args: ["--from", "pngmeta[mcp]", "pngmeta-mcp"]
+    enabled: true
+    type: stdio
+    timeout: 60
+```
+
+Or install via deeplink:
+
+```
+goose://extension?cmd=uvx&arg=--from&arg=pngmeta[mcp]&arg=pngmeta-mcp&timeout=60&id=pngmeta&name=PNG%20Metadata&description=Read%20and%20write%20PNG%20metadata
+```
+
+### Available tools
+
+| Tool | Description |
+|------|-------------|
+| `read_metadata` | Read all text metadata (tEXt, iTXt, zTXt) from a PNG |
+| `write_metadata` | Write or update a single metadata key |
+| `write_metadata_batch` | Write multiple metadata keys in one pass |
+| `get_xmp` | Extract XMP metadata as XML |
+| `set_xmp` | Set XMP metadata from an XML string |
+| `remove_metadata` | Remove a metadata key |

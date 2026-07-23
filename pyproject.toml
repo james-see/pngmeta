@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "Unlicense"}
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "James Campbell", email = "james@jamescampbell.us"}
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -25,13 +25,16 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
-keywords = ["png", "metadata", "exif", "xmp", "itxt", "text", "chunks", "image"]
+keywords = ["png", "metadata", "exif", "xmp", "itxt", "text", "chunks", "image", "mcp", "goose"]
 dependencies = []
 
+[project.scripts]
+pngmeta-mcp = "pngmeta.mcp_server:main"
+
 [project.urls]
-Homepage = "https://github.com/yourusername/pngmeta"
-Issues = "https://github.com/yourusername/pngmeta/issues"
-Source = "https://github.com/yourusername/pngmeta"
+Homepage = "https://github.com/james-see/pngmeta"
+Issues = "https://github.com/james-see/pngmeta/issues"
+Source = "https://github.com/james-see/pngmeta"
 
 [project.optional-dependencies]
 dev = [
@@ -42,6 +45,9 @@ dev = [
 publish = [
     "hatch>=1.7.0",
     "twine>=4.0.0",
+]
+mcp = [
+    "mcp>=1.0.0",
 ]
 
 [tool.hatch.version]
