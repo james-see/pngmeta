@@ -40,31 +40,31 @@ from pngmeta import PngMeta
 
 **Create new info object**
 ```python
-meta = PngMeta('photo.png')
+meta = PngMeta("photo.png")
 ```
 
 **Access metadata**
 ```python
 # Get specific attributes
-title = meta['Title']
-author = meta['Author']
-copyright_text = meta.get('Copyright')
+title = meta["Title"]
+author = meta["Author"]
+copyright_text = meta.get("Copyright")
 ```
 
 **Modify metadata**
 ```python
 # Add/change attributes
-meta['Title'] = 'Sunset Over Mountains'
-meta['Author'] = 'Jane Photographer'
-meta['Copyright'] = '© 2025 Jane Photographer. All rights reserved.'
-meta['Description'] = 'A stunning sunset over the mountains'
+meta["Title"] = "Sunset Over Mountains"
+meta["Author"] = "Jane Photographer"
+meta["Copyright"] = "© 2025 Jane Photographer. All rights reserved."
+meta["Description"] = "A stunning sunset over the mountains"
 ```
 
 **Common metadata fields**
 ```python
-meta['Creation Time'] = '2025-10-05T12:00:00'
-meta['Software'] = 'pngmeta 0.1.0'
-meta['Comment'] = 'What a beautiful day!'
+meta["Creation Time"] = "2025-10-05T12:00:00"
+meta["Software"] = "pngmeta 0.1.0"
+meta["Comment"] = "What a beautiful day!"
 ```
 
 **Work with XMP metadata**
@@ -78,7 +78,7 @@ meta.set_xmp('<?xml version="1.0"?><x:xmpmeta>...</x:xmpmeta>')
 
 **Check if metadata exists**
 ```python
-if 'Author' in meta:
+if "Author" in meta:
     print(f"Photo by {meta['Author']}")
 ```
 
@@ -94,14 +94,14 @@ for key, value in meta.items():
 meta.save()
 
 # Or save to a new file
-meta.save('photo_with_metadata.png')
+meta.save("photo_with_metadata.png")
 ```
 
 **Create object for file that may not have metadata**
 ```python
 # Reads existing file, ready to add metadata
-meta = PngMeta('new_photo.png')
-meta['Title'] = 'My First Metadata'
+meta = PngMeta("new_photo.png")
+meta["Title"] = "My First Metadata"
 meta.save()
 ```
 
@@ -111,22 +111,22 @@ meta.save()
 from pngmeta import PngMeta
 
 # Open an image
-meta = PngMeta('photo.png')
+meta = PngMeta("photo.png")
 
 # Add comprehensive metadata
-meta['Title'] = 'Golden Gate Bridge at Sunset'
-meta['Author'] = 'Jane Photographer'
-meta['Copyright'] = '© 2025 Jane Photographer. All rights reserved.'
-meta['Description'] = 'A stunning view of the Golden Gate Bridge during golden hour'
-meta['Creation Time'] = '2025-10-05T18:30:00'
-meta['Software'] = 'pngmeta 0.1.0'
-meta['Comment'] = 'Shot with telephoto lens'
+meta["Title"] = "Golden Gate Bridge at Sunset"
+meta["Author"] = "Jane Photographer"
+meta["Copyright"] = "© 2025 Jane Photographer. All rights reserved."
+meta["Description"] = "A stunning view of the Golden Gate Bridge during golden hour"
+meta["Creation Time"] = "2025-10-05T18:30:00"
+meta["Software"] = "pngmeta 0.1.0"
+meta["Comment"] = "Shot with telephoto lens"
 
 # Save the changes
 meta.save()
 
 # Read it back to verify
-meta2 = PngMeta('photo.png')
+meta2 = PngMeta("photo.png")
 print(f"Title: {meta2['Title']}")
 print(f"Author: {meta2['Author']}")
 ```
@@ -212,14 +212,16 @@ If you're familiar with [iptcinfo3](https://github.com/james-see/iptcinfo3), png
 ```python
 # iptcinfo3 (for JPEG)
 from iptcinfo3 import IPTCInfo
-info = IPTCInfo('photo.jpg')
-info['caption/abstract'] = 'My photo'
+
+info = IPTCInfo("photo.jpg")
+info["caption/abstract"] = "My photo"
 info.save()
 
 # pngmeta (for PNG)
 from pngmeta import PngMeta
-meta = PngMeta('photo.png')
-meta['Description'] = 'My photo'
+
+meta = PngMeta("photo.png")
+meta["Description"] = "My photo"
 meta.save()
 ```
 

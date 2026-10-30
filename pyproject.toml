@@ -7,7 +7,7 @@ name = "pngmeta"
 dynamic = ["version"]
 description = "A Python library for reading and writing PNG metadata (tEXt, iTXt, zTXt chunks and XMP)"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 license = {text = "Unlicense"}
 authors = [
     {name = "James Campbell", email = "james@jamescampbell.us"}
@@ -18,12 +18,13 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Multimedia :: Graphics",
     "License :: Public Domain",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
 ]
 keywords = ["png", "metadata", "exif", "xmp", "itxt", "text", "chunks", "image", "mcp", "goose"]
 dependencies = []
@@ -38,16 +39,16 @@ Source = "https://github.com/james-see/pngmeta"
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.0.0",
-    "black>=22.0.0",
-    "ruff>=0.1.0",
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
 ]
 publish = [
     "hatch>=1.7.0",
     "twine>=4.0.0",
 ]
 mcp = [
-    "mcp>=1.0.0",
+    "mcp>=1.0.0,<2",
 ]
 
 [tool.hatch.version]
@@ -56,20 +57,25 @@ path = "pngmeta/__init__.py"
 [tool.hatch.build.targets.wheel]
 packages = ["pngmeta"]
 
-[tool.black]
-line-length = 100
-target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+[tool.coverage.run]
+branch = true
+source = ["pngmeta"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
 
 [tool.ruff]
 line-length = 100
-target-version = "py38"
+target-version = "py310"
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "N", "UP"]
-ignore = []
+ignore = ["N818"]  # Third-party exception names cannot easily change here
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
+addopts = "-q"

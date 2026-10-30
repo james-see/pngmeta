@@ -3,7 +3,6 @@
 import struct
 import zlib
 from pathlib import Path
-from typing import Dict, Optional, Union
 
 from .exceptions import InvalidPngError
 
@@ -29,7 +28,7 @@ class PngMeta:
         meta.set_xmp(xmp_string)
     """
 
-    def __init__(self, filename: Union[str, Path]):
+    def __init__(self, filename: str | Path):
         """
         Initialize PngMeta with a PNG file.
 
@@ -41,9 +40,9 @@ class PngMeta:
             FileNotFoundError: If the file doesn't exist
         """
         self.filename = Path(filename)
-        self._metadata: Dict[str, str] = {}
+        self._metadata: dict[str, str] = {}
         self._chunks = []
-        self._xmp: Optional[str] = None
+        self._xmp: str | None = None
 
         if not self.filename.exists():
             raise FileNotFoundError(f"File not found: {filename}")
@@ -79,7 +78,7 @@ class PngMeta:
                 if chunk_type == b"IEND":
                     break
 
-    def _read_chunk(self, f) -> Optional[Dict]:
+    def _read_chunk(self, f) -> dict | None:
         """Read a single PNG chunk."""
         # Read length (4 bytes)
         length_bytes = f.read(4)
@@ -170,7 +169,7 @@ class PngMeta:
         except Exception:
             pass
 
-    def get(self, key: str, default=None) -> Optional[str]:
+    def get(self, key: str, default=None) -> str | None:
         """
         Get a metadata value by key.
 
@@ -193,7 +192,7 @@ class PngMeta:
         """
         self._metadata[key] = value
 
-    def get_xmp(self) -> Optional[str]:
+    def get_xmp(self) -> str | None:
         """Get the XMP metadata as a string."""
         return self._xmp
 
@@ -257,7 +256,7 @@ class PngMeta:
         crc = struct.pack(">I", zlib.crc32(chunk_type + data) & 0xFFFFFFFF)
         return length + chunk_type + data + crc
 
-    def save(self, filename: Optional[Union[str, Path]] = None):
+    def save(self, filename: str | Path | None = None):
         """
         Save the PNG file with updated metadata.
 

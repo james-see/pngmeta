@@ -20,19 +20,19 @@ uv pip install pngmeta
 from pngmeta import PngMeta
 
 # Read metadata
-meta = PngMeta('photo.png')
-print(meta.get('Title'))
-print(meta.get('Author'))
+meta = PngMeta("photo.png")
+print(meta.get("Title"))
+print(meta.get("Author"))
 
 # Write metadata
-meta.set('Title', 'Sunset Over Mountains')
-meta.set('Author', 'Jane Doe')
-meta.set('Copyright', '© 2025 Jane Doe')
+meta.set("Title", "Sunset Over Mountains")
+meta.set("Author", "Jane Doe")
+meta.set("Copyright", "© 2025 Jane Doe")
 meta.save()
 
 # Dictionary-style access
-meta['Description'] = 'Beautiful landscape'
-if 'Author' in meta:
+meta["Description"] = "Beautiful landscape"
+if "Author" in meta:
     print(f"By {meta['Author']}")
 
 # XMP support
@@ -100,14 +100,16 @@ Similar patterns for easy migration:
 ```python
 # iptcinfo3 (for JPEG)
 from iptcinfo3 import IPTCInfo
-info = IPTCInfo('photo.jpg')
-info['caption/abstract'] = 'My photo'
+
+info = IPTCInfo("photo.jpg")
+info["caption/abstract"] = "My photo"
 info.save()
 
 # pngmeta (for PNG)
 from pngmeta import PngMeta
-meta = PngMeta('photo.png')
-meta['Description'] = 'My photo'
+
+meta = PngMeta("photo.png")
+meta["Description"] = "My photo"
 meta.save()
 ```
 
