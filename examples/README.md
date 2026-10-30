@@ -70,9 +70,9 @@ Sample PNG image for testing. The demo script uses this image to demonstrate all
 3. **Write your own:**
    ```python
    from pngmeta import PngMeta
-   
-   meta = PngMeta('your-image.png')
-   meta['Title'] = 'My Photo'
+
+   meta = PngMeta("your-image.png")
+   meta["Title"] = "My Photo"
    meta.save()
    ```
 

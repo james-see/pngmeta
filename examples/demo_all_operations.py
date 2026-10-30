@@ -37,9 +37,9 @@ class Colors:
 
 def print_header(text):
     """Print a colored header."""
-    print(f"\n{Colors.HEADER}{Colors.BOLD}{'='*70}{Colors.END}")
+    print(f"\n{Colors.HEADER}{Colors.BOLD}{'=' * 70}{Colors.END}")
     print(f"{Colors.HEADER}{Colors.BOLD}{text:^70}{Colors.END}")
-    print(f"{Colors.HEADER}{Colors.BOLD}{'='*70}{Colors.END}\n")
+    print(f"{Colors.HEADER}{Colors.BOLD}{'=' * 70}{Colors.END}\n")
 
 
 def print_step(number, text):
