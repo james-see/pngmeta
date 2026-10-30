@@ -1,11 +1,8 @@
 """MCP server exposing pngmeta PNG metadata tools to goose and other MCP clients."""
 
-import base64
-from pathlib import Path
-
 from mcp.server.fastmcp import FastMCP
 
-from pngmeta import PngMeta, InvalidPngError, PngMetaError
+from pngmeta import InvalidPngError, PngMeta, PngMetaError
 
 mcp = FastMCP("pngmeta")
 

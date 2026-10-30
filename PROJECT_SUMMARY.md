@@ -61,15 +61,15 @@ Simple, intuitive API modeled after `iptcinfo3`:
 ```python
 from pngmeta import PngMeta
 
-meta = PngMeta('image.png')
-meta.set('Title', 'My Image')
-meta.set('Author', 'John Doe')
-meta.set_xmp('<xml>...</xml>')
+meta = PngMeta("image.png")
+meta.set("Title", "My Image")
+meta.set("Author", "John Doe")
+meta.set_xmp("<xml>...</xml>")
 meta.save()
 
 # Dictionary-style access
-meta['Copyright'] = '© 2025'
-print(meta['Author'])
+meta["Copyright"] = "© 2025"
+print(meta["Author"])
 ```
 
 ## Technical Implementation
